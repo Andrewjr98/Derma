@@ -34,7 +34,7 @@ const postSchema = new Schema({
   },
   comments: [
     {
-      username: {
+      commentAuthor: {
         type: String,
         required: true,
         trim: true,
