@@ -1,9 +1,9 @@
 const { Schema, model } = require("mongoose");
 const dateFormat = require("../Utils/dateFormat");
 
-const postSchema = new Schema({
+const PostSchema = new Schema({
   title: {
-    type: string,
+    type: String,
     minlength: 1,
     maxlength: 36,
     trim: true,
@@ -17,7 +17,7 @@ const postSchema = new Schema({
     String,
   },
   message: {
-    type: string,
+    type: String,
     minlength: 1,
     maxlength: 280,
     trim: true,
@@ -54,6 +54,6 @@ const postSchema = new Schema({
   ],
 });
 
-const Post = model("Post", postSchema);
+const Post = model("Post", PostSchema);
 
 module.exports = Post;

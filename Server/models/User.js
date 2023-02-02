@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 const bcrypt = require("bcrypt");
 const Post = require("./Post");
 
@@ -21,7 +21,7 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  posts: [Post.schema],
+  Posts: [Post.schema],
 
   friends: [
     {
