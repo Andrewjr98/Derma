@@ -71,3 +71,7 @@ export const QUERY_USERS = gql`
     }
   }
 `;
+
+export const QUERY_FRIENDS = gql`
+
+`

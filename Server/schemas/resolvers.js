@@ -19,10 +19,13 @@ const resolvers = {
         },
         me: async (parent, args, context) => {
             if (context.user) {
-                return User.findOne({ _id: context.user._id }).populate('Posts');
+                return User.findOne({ _id: context.user._id }).populate('Posts').populate('friends');
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+        user: async (parent, args) => {
+            return User.findById(args._id).populate('friend');
+        }
     },
 
     Mutation: {
@@ -118,7 +121,36 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
-    },
+        addFriend: async (parent, { friendId, user }, context) => {
+            const friend = await friend.findOneAndUpdate(
+                { _id: user },
+                {
+                    $push: {
+                        friends: {
+                            _id: friendId
+                        }
+                    }
+                },
+                { new: true }
+            );
+        },
+        removeFriend: async (parent, { friendId, user }, context) => {
+            if (context.user) {
+                return Post.findOneAndUpdate(
+                    { _id: user },
+                    {
+                        $pull: {
+                            friends: {
+                                _id: friendId
+                            },
+                        },
+                    },
+                    { new: true }
+                );
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        }
+    }
 };
 
 module.exports = resolvers;

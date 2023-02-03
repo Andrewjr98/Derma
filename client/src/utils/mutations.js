@@ -28,14 +28,14 @@ mutation addUser($username: String!, $email: String!, $password: String!) {
 export const ADD_POST = gql`
 mutation addPost($message: String!) {
     addPost(message: $message) {
-      id
+      _id
       message
       username
       createdAt
       tags
       title
       comments {
-        id
+        _id
         comment
       }
     }
@@ -45,13 +45,13 @@ mutation addPost($message: String!) {
 export const ADD_COMMENT = gql`
 mutation addPost($postId: ID!, $comment: String!) {
     addComment(PostId: $postId, comment: $comment) {
-      id
+      _id
       message
       title
       username
       createdAt
       comments {
-        id
+        _id
         comment
         commentAuthor
         createdAt
