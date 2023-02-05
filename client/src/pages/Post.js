@@ -1,5 +1,4 @@
 import React from "react";
-import React from 'react';
 
 // Import the `useParams()` hook
 import { useParams } from 'react-router-dom';
@@ -42,7 +41,7 @@ const Post = () => {
                 <CommentList comments= {Post.comments}/>
             </div>
             <div className="" style={{}}>
-                <CommentForm postId={post._id}/>
+                <CommentForm postId={Post._id}/>
             </div>
         </div>
     );
