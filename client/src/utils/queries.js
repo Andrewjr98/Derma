@@ -73,5 +73,10 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_FRIENDS = gql`
-
+query friends($friendsId: ID!) {
+  friends(id: $friendsId) {
+    friends
+    username
+  }
+}
 `
