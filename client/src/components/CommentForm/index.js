@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
-import { ADD_COMMENT } from '../../utils/mutations';
+import { ADD_COMMENT } from "../../utils/mutations";
 
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const CommentForm = ({ postId }) => {
-  const [commentText, setCommentText] = useState('');
+  const [comment, setComment] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addComment, { error }] = useMutation(ADD_COMMENT);
@@ -19,12 +19,12 @@ const CommentForm = ({ postId }) => {
       const { data } = await addComment({
         variables: {
           postId,
-          commentText,
+          comment,
           commentAuthor: Auth.getProfile().data.username,
         },
       });
 
-      setCommentText('');
+      setComment("");
     } catch (err) {
       console.error(err);
     }
@@ -33,8 +33,8 @@ const CommentForm = ({ postId }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'commentText' && value.length <= 280) {
-      setCommentText(value);
+    if (name === "comment" && value.length <= 280) {
+      setComment(value);
       setCharacterCount(value.length);
     }
   };
@@ -47,23 +47,20 @@ const CommentForm = ({ postId }) => {
         <>
           <p
             className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
+              characterCount === 280 || error ? "text-danger" : ""
             }`}
           >
             Character Count: {characterCount}/280
             {error && <span className="ml-2">{error.message}</span>}
           </p>
-          <form
-            className=" "
-            onSubmit={handleFormSubmit}
-          >
+          <form className=" " onSubmit={handleFormSubmit}>
             <div className=" ">
               <textarea
-                name="commentText"
+                name="comment"
                 placeholder="Add your comment..."
-                value={commentText}
-                className="form-input w-100"
-                style={{ lineHeight: '1.5', resize: 'vertical' }}
+                value={comment}
+                className=""
+                style=""
                 onChange={handleChange}
               ></textarea>
             </div>
@@ -77,8 +74,8 @@ const CommentForm = ({ postId }) => {
         </>
       ) : (
         <p>
-          Please login to comment! {' '}
-          <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+          Please login to comment! <Link to="/login">login</Link> or{" "}
+          <Link to="/signup">signup.</Link>
         </p>
       )}
     </div>
