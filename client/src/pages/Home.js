@@ -14,7 +14,7 @@ const Home = () => {
     <main className="">
       <div className="flex flex-col items-center">
         <header className="text-3xl font-medium text-center mb-10">
-          Welcome to Reddit-like Homepage
+          Welcome to Derma 
         </header>
         <div className="w-full max-w-4xl">
           {loading ? (
