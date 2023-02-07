@@ -75,7 +75,7 @@ const CommentForm = ({ postId }) => {
       ) : (
         <p>
           Please login to comment! <Link to="/login">login</Link> or{" "}
-          <Link to="/signup">signup.</Link>
+          <Link to="/SignUp">signup.</Link>
         </p>
       )}
     </div>
