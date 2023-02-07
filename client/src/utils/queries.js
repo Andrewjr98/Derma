@@ -14,16 +14,22 @@ export const QUERY_POST = gql`
 `;
 
 export const QUERY_POSTS = gql`
-  query Posts {
-    id
-    title
-    message
-    tags
-    image
-    likeCount
-    username
-    comments
-  }
+query PostList {
+  Posts {
+   id
+   title
+   message
+   tags
+   likeCount
+   username
+   comments {
+     comment
+     commentAuthor
+     createdAt
+   }
+   image
+ }
+ }
 `;
 
 export const QUERY_ME = gql`

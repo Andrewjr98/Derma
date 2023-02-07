@@ -14,7 +14,7 @@ const Signup = () => {
     });
     const [addUser, { error, data}] = useMutation(ADD_USER);
     const handleChange = (event) => {
-        const { name, value } = event.taget;
+        const { name, value } = event.target;
 
         setFormState({
             ...formState,
@@ -54,15 +54,15 @@ const Signup = () => {
                             name='username'
                             type="text"
                             value={formState.name}
-                            onchange={handleChange}
+                            onChange={handleChange}
                             />
                             <input
                             className=''
                             placeholder='Enter a Valid Email Address'
-                            name='Email'
+                            name='email'
                             type='email'
                             value={formState.email}
-                            onchange={handleChange}
+                            onChange={handleChange}
                             />
                             <input
                             className=''
@@ -70,7 +70,7 @@ const Signup = () => {
                             name='password'
                             type="password"
                             value={formState.password}
-                            onchange={handleChange}
+                            onChange={handleChange}
                             />
                             <button
                             className=''

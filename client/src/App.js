@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import Signup from "./pages/SignUp";
 import Login from "./pages/login";
 import Post from "./pages/Post";
-import Profile from "./pages/Profile";
+import Profile from "./pages/profile";
 import Header from "./components/Header";
 
 const httpLink = createHttpLink({
