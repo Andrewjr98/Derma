@@ -1,36 +1,29 @@
 import { gql } from "@apollo/client";
 
 export const QUERY_POST = gql`
-query Post(PostId: $postId, $postPostId2: ID!) {
-  Post(PostId: $postPostId2) {
-    id
-    username
-    title
-    image
-    message
-    createdAt
-    tags
-    likeCount
-    comments {
-      id
-      commentAuthor
-      createdAt
-      comment
+  query Post($postId: ID!) {
+    Post(PostId: $postId) {
+      commentCount
+      comments {
+        commentAuthor
+        comment
+        createdAt
+      }
     }
   }
-}
-}`;
+`;
 
 export const QUERY_POSTS = gql`
-Posts {
-  id
-  title
-  message
-  tags
-  image
-  likeCount
-  username
-}
+  query Posts {
+    id
+    title
+    message
+    tags
+    image
+    likeCount
+    username
+    comments
+  }
 `;
 
 export const QUERY_ME = gql`
@@ -73,10 +66,10 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_FRIENDS = gql`
-query friends($friendsId: ID!) {
-  friends(id: $friendsId) {
-    friends
-    username
+  query friends($friendsId: ID!) {
+    friends(id: $friendsId) {
+      friends
+      username
+    }
   }
-}
-`
+`;
