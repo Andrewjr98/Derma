@@ -1,9 +1,11 @@
 import { useQuery } from "@apollo/client";
+import PostList from "../components/CommentList";
+import PostForm from "../components/PostForm";
 import { QUERY_POSTS } from "../utils/queries";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_POSTS);
-  const posts = data?.posts || [];
+  const posts = data?.Posts || [];
 
   return (
     <main className="">
@@ -11,11 +13,13 @@ const Home = () => {
         <header className="text-3xl font-medium text-center mb-10">
           Welcome to Derma 
         </header>
+        <PostForm/>
         <div className="w-full max-w-4xl">
           {loading ? (
             <div className="">Loading...</div>
           ) : (
-            <PostList posts={posts} />
+            <PostList posts={posts} 
+            title="Some Feed fot Post(s)"/>
           )}
         </div>
       </div>
@@ -23,72 +27,5 @@ const Home = () => {
   );
 };
 
-const PostList = ({ posts }) => (
-  <div>
-    {posts.map((post) => (
-      <Post
-        key={post.id}
-        title={post.title}
-        content={post.message}
-        tags={post.tags}
-        image={post.image}
-        username={post.username}
-        likeCount={post.likeCount}
-        comments={post.comments}
-      />
-    ))}
-  </div>
-);
-
-const Post = ({
-  title,
-  content,
-  tags,
-  image,
-  username,
-  likeCount,
-  comments,
-}) => (
-  <div className="">
-    <h3 className="">{title}</h3>
-    <p className="">{content}</p>
-    <div className="">
-      <div className="">Author: {username}</div>
-      <div className="">Image: {image}</div>
-      <div className="">Tags: {tags.join(", ")}</div>
-    </div>
-    <div className="f">
-      <div className="">Likes: {likeCount}</div>
-      <button className="">Like</button>
-    </div>
-    <div className="mt-4">
-      {comments.map((comment) => (
-        <Comment
-          key={comment.id}
-          author={comment.commentAuthor}
-          createdAt={comment.createdAt}
-          text={comment.comment}
-        />
-      ))}
-    </div>
-    <div className="">
-      <form className="">
-        <div className="">
-          <label className="">Add Comment:</label>
-          <textarea className="" rows="3"></textarea>
-        </div>
-        <button className="">Submit</button>
-      </form>
-    </div>
-  </div>
-);
-const Comment = ({ author, createdAt, text }) => (
-  <div className="">
-    <div className="">
-      {author} on {createdAt}
-    </div>
-    <div className="">{text}</div>
-  </div>
-);
 
 export default Home;

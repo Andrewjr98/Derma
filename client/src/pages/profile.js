@@ -44,7 +44,7 @@ const Profile = () => {
 
         <div className="">
           <PostList
-            thoughts={user.thoughts}
+            posts={user.posts}
             title={`${user.username}'s posts..`}
             showTitle={false}
             showUsername={false}

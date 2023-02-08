@@ -14,18 +14,19 @@ import Login from "./pages/login";
 import Post from "./pages/Post";
 import Profile from "./pages/profile";
 import Header from "./components/Header";
+import SearchBar from "./components/SearchBar";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
-const authLink = setContext((_, { Headers }) => {
+const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
 
   return {
     headers: {
-      ...Headers,
-      authorization: token ? `Bearer ${token}` : "",
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
     },
   };
 });
@@ -41,6 +42,9 @@ const App = () => {
       <Router>
         <div className="">
           <Header />
+          <div>
+            <SearchBar />
+          </div>
           <div className="">
             <Routes>
               <Route path="/" element={<Home />} />
