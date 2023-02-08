@@ -52,7 +52,7 @@ const resolvers = {
       if (context.user) {
         const post = await Post.create({
           message,
-          username: context.user.username,
+          postAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(
@@ -85,7 +85,7 @@ const resolvers = {
       if (context.user) {
         const post = await Post.findOneAndDelete({
           _id: postId,
-          username: context.user.username,
+          postAuthor: context.user.username,
         });
 
         await User.findOneAndUpdate(

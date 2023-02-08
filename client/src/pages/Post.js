@@ -24,7 +24,7 @@ const Post = () => {
     return (
         <div className="">
             <h2 className="">
-                {Post.username} <br />
+                {Post.postAuthor} <br />
                 <span style={{ fontSize: '15px' }}>
                     Posted this on {Post.createdAt}
                 </span>

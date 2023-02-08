@@ -16,11 +16,11 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_POSTS = gql`
-  query getThoughts {
+  query posts {
     posts {
       _id
       message
-      username
+      postAuthor
       createdAt
     }
   }
@@ -31,7 +31,7 @@ export const QUERY_POST = gql`
     post(postId: $postId) {
       _id
       message
-      username
+      postAuthor
       createdAt
       comments {
         _id
@@ -52,7 +52,7 @@ export const QUERY_ME = gql`
       posts {
         _id
         message
-        username
+        postAuthor
         createdAt
       }
     }

@@ -29,7 +29,7 @@ export const ADD_POST = gql`
     addPost(message: $message) {
       _id
       message
-      username
+      postAuthor
       createdAt
       comments {
         _id

@@ -1,7 +1,7 @@
 [
     {
         "title": "title1",
-        "username": "Brian Kernighan",
+        "postAuthor": "Brian Kernighan",
         "image": "image1",
         "message": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
         "tags": "January 01, 2023",
@@ -9,7 +9,7 @@
     },
     {
         "title": "title2",
-        "username": "Max Kanat-Alexander",
+        "postAuthor": "Max Kanat-Alexander",
         "image": "image2",
         "message": "Some of the best programming is done on paper, really. Putting it into the computer is just a minor detail.",
         "tags": "January 02, 2023",
@@ -17,7 +17,7 @@
     },
     {
         "title": "title3",
-        "username": "Why The Lucky Stiff",
+        "postAuthor": "Why The Lucky Stiff",
         "image": "image3",
         "message": "When you don't create things, you become defined by your tastes rather than ability. Your tastes only narrow & exclude people. So create.",
         "tags": "January 03, 2023",
@@ -25,7 +25,7 @@
     },
     {
         "title": "title4",
-        "username": "Kent Beck",
+        "postAuthor": "Kent Beck",
         "image": "image4",
         "message": "I'm not a great programmer; I'm just a good programmer with great habits.",
         "tags": "January 04, 2023",
@@ -33,7 +33,7 @@
     },
     {
         "title": "title5",
-        "username": "Edward V. Berard",
+        "postAuthor": "Edward V. Berard",
         "image": "image5",
         "message": "Walking on water and developing software from a specification are easy if both are frozen.",
         "tags": "January 05, 2023",
@@ -41,7 +41,7 @@
     },
     {
         "title": "title6",
-        "username": "Alan Kay",
+        "postAuthor": "Alan Kay",
         "image": "image6",
         "message": "The most disastrous thing that you can ever learn is your first programming language.",
         "tags": "January 06, 2023",
@@ -49,7 +49,7 @@
     },
     {
         "title": "title7",
-        "username": "C.A.R. Hoare",
+        "postAuthor": "C.A.R. Hoare",
         "image": "image7",
         "message": "The most important property of a program is whether it accomplishes the intention of its user.",
         "tags": "January 07, 2023",
@@ -57,7 +57,7 @@
     },
     {
         "title": "title8",
-        "username": "David Thomas",
+        "postAuthor": "David Thomas",
         "image": "image8",
         "message": "Delivering good software today is often better than perfect software tomorrow, so finish things and ship.",
         "tags": "January 08, 2023",
@@ -65,7 +65,7 @@
     },
     {
         "title": "title9",
-        "username": "Donald Knuth",
+        "postAuthor": "Donald Knuth",
         "image": "image9",
         "message": "If you optimize everything, you will always be unhappy.",
         "tags": "January 09, 2023",
@@ -73,7 +73,7 @@
     },
     {
         "title": "title10",
-        "username": "Lernantino",
+        "postAuthor": "Lernantino",
         "image": "image10",
         "message": "It's not a bug; it's an undocumented feature.",
         "tags": "January 10, 2023",
