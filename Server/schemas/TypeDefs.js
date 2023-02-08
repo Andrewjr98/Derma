@@ -6,7 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    posts: [Post]!
+    posts: [Post]
   }
 
   type Post {
@@ -14,7 +14,7 @@ const typeDefs = gql`
     message: String
     postAuthor: String
     createdAt: String
-    comments: [Comment]!
+    comments: [Comment]
   }
 
   type Comment {
@@ -34,8 +34,7 @@ const typeDefs = gql`
     user(username: String): User
     posts(username: String): [Post]
     post(postId: ID!): Post
-    me: User
-    
+    me: User 
   }
 
   type Mutation {
