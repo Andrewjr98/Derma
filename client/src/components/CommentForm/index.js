@@ -7,7 +7,7 @@ import { ADD_COMMENT } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const CommentForm = ({ postId }) => {
-  const [comment, setComment] = useState("");
+  const [comment, setComment] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addComment, { error }] = useMutation(ADD_COMMENT);
@@ -24,7 +24,7 @@ const CommentForm = ({ postId }) => {
         },
       });
 
-      setComment("");
+      setComment();
     } catch (err) {
       console.error(err);
     }
@@ -41,7 +41,7 @@ const CommentForm = ({ postId }) => {
 
   return (
     <div>
-      <h4>What are your thoughts on this skin product?</h4>
+      <h4>What are your posts on this skin product?</h4>
 
       {Auth.loggedIn() ? (
         <>

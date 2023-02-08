@@ -2,21 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PostList = ({
-    posts,
+    Posts,
     title,
     showTitle = true,
     showUsername = true,
 
 }) => {
-    if (!posts.length) {
+    if (!Posts.length) {
         return <h3>Such Empty</h3>;
     }
 
     return (
         <div>
             {showTitle && <h3>{title}</h3>}
-            {posts &&
-                posts.map((Post) => (
+            {Posts &&
+                Posts.map((Post) => (
                     <div key={Post._id} className="">
                         <h4 className=''>
                             {showUsername ? (
