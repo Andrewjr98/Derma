@@ -12,7 +12,7 @@ const typeDefs = gql`
   type Post {
     _id: ID
     message: String
-    username: String
+    postAuthor: String
     createdAt: String
     comments: [Comment]!
   }
@@ -31,11 +31,11 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user(username: String!): User
+    user(username: String): User
     posts(username: String): [Post]
     post(postId: ID!): Post
     me: User
-    friends(id:ID!):User
+    
   }
 
   type Mutation {

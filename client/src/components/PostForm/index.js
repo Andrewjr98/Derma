@@ -8,7 +8,7 @@ import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
 import Auth from "../../utils/auth";
 
 const PostForm = () => {
-  const [message, setMessage] = useState(' ');
+  const [message, setMessage] = useState("");
 
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -41,11 +41,11 @@ const PostForm = () => {
       const { data } = await addPost({
         variables: {
           message,
-          username: Auth.getProfile().data
+          username: Auth.getProfile().data.username,
         },
       });
 
-      setMessage('');
+      setMessage("");
     } catch (err) {
       console.error(err);
     }
@@ -54,7 +54,7 @@ const PostForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'message' && value.length <= 280) {
+    if (name === "message" && value.length <= 280) {
       setMessage(value);
       setCharacterCount(value.length);
     }
@@ -62,13 +62,13 @@ const PostForm = () => {
 
   return (
     <div>
-      <h3>What's on your Skinny mind?</h3>
+      <h3>What's on your techy mind?</h3>
 
       {Auth.loggedIn() ? (
         <>
           <p
             className={`m-0 ${
-              characterCount === 280 || error ? 'text-danger' : ''
+              characterCount === 280 || error ? "text-danger" : ""
             }`}
           >
             Character Count: {characterCount}/280
@@ -77,7 +77,7 @@ const PostForm = () => {
             <div className="">
               <textarea
                 name="message"
-                placeholder="Here's a new post..."
+                placeholder="Here's a new thought..."
                 value={message}
                 className=""
                 style={{ lineHeight: "1.5", resize: "vertical" }}
@@ -90,15 +90,12 @@ const PostForm = () => {
                 Add Post
               </button>
             </div>
-            {error && (
-            <div className="">{error.message}
-            </div>
-            )}
+            {error && <div className="">{error.message}</div>}
           </form>
         </>
       ) : (
         <p>
-          You need to be logged in to share your posts. Please{' '}
+          You need to be logged in to share your posts. Please{" "}
           <Link to="/login">login</Link> or <Link to="/signup">Signup.</Link>
         </p>
       )}
