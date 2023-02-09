@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations'; 
 
+import {
+    Form,
+    Button,
+    Grid,
+    Header as SemanticHeader,
+    Segment,
+  } from "semantic-ui-react";
+
 import Auth from '../utils/auth';
 
 const Signup = () => {
@@ -37,58 +45,61 @@ const Signup = () => {
     };
 
     return (
-      <main className=''>
-        <div className=''>
-            <div className=''>
-                <h4 className=''>Signup</h4>
-                <div className=''>
-                    {data ? (
-                        <p>
-                            <Link to="/"> Back to the Lobby with you.</Link>
-                        </p>
+      <main>
+      <Grid centered>
+        <Grid.Column style={{ maxWidth: 400, marginTop: 30 }}>
+          <SemanticHeader>Create New Account</SemanticHeader>
+
+          {data ? (
+            <p>
+              Success! You may now head{" "}
+              <Link to="/">back to the homepage.</Link>
+            </p>
                     ) : (
                         <form onSubmit={handleFormSubmit}>
-                            <input
-                            className=''
-                            placeholder=''
+                            <Form.Field>
+                            <Form.Input
+                            className='form-input'
+                            placeholder='Your username'
                             name='username'
                             type="text"
                             value={formState.name}
                             onChange={handleChange}
-                            />
-                            <input
-                            className=''
+                            /></Form.Field>
+                            <Form.Field><Form.Input
+                            className='form-input'
                             placeholder='Enter a Valid Email Address'
                             name='email'
                             type='email'
                             value={formState.email}
                             onChange={handleChange}
-                            />
-                            <input
-                            className=''
+                            /></Form.Field>
+                            <Form.Field>
+                            <Form.Inputnput
+                            className='form-input'
                             placeholder='************'
                             name='password'
                             type="password"
                             value={formState.password}
                             onChange={handleChange}
-                            />
+                            /></Form.Field>
                             <button
                             className=''
-                            style={{}}
-                            type="submit"
+                            style={{ cursor: "pointer" }}
+                            type="submit" fluid primary
                             >Submit
                             </button>
                         </form>
                     )}
 
-                    {error && (
-                        <div className=''>
-                            {error.message}
-                        </div>
-                    )}
-                </div>
-            </div>
-        </div>
+{error && (
+            <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+          )}
+                    <Segment>
+            Already have an account? <Link to="/login">Login</Link>.
+          </Segment>
+                   </Grid.Column>
+                   </Grid>
       </main>  
     );
 };
