@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
+import { Button } from "semantic-ui-react";
 
 import { ADD_COMMENT } from "../../utils/mutations";
 
@@ -66,9 +67,13 @@ const CommentForm = ({ postId }) => {
             </div>
 
             <div className=" ">
-              <button className=" " type="submit">
+            <Button
+                class="ui right floated button"
+                type="submit"
+                className="mt-2"
+              >
                 Add Comment
-              </button>
+              </Button>
             </div>
           </form>
         </>
