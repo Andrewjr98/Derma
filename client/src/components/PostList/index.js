@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+import { Button, Card, Rating } from "semantic-ui-react";
+
 const PostList = ({
     posts,
     title,
@@ -13,18 +16,19 @@ const PostList = ({
     }
 
     return (
-        <div>
+        <Card.Group>
             {showTitle && <h3>{title}</h3>}
             {posts &&
                 posts.map((Post) => (
-                    <div key={Post._id} className="">
-                        <h4 className=''>
+                    <Card key={Post._id} style={{ Width: 1000, marginTop: 50 }}>
+                        <Card.Content>
+                            <Card.Header>
                             {showUsername ? (
                                 <Link
-                                    className=''
+                                    className="text-dark"
                                     to={`/profiles/${Post.username}`}
                                 >{Post.username}<br />
-                                    <span style={{ fontSize: '15px' }}>
+                                    <span style={{ fontSize: "1rem" }}>
                                         Posted this on {Post.createdAt}
                                     </span>
                                 </Link>
@@ -35,19 +39,70 @@ const PostList = ({
                                     </span>
                                 </>
                             )}
-                        </h4>
-                        <div className=''>
+                            </Card.Header>
+                        
+                        <Card.Description style={{ marginTop: 10 }}>
                             <p>{Post.message}</p>
-                        </div>
-                        <Link
-                            className='' to={`/posts/${Post._id}`}
-                        >
-                            Give your 2 cents on this Post.
-                        </Link>
-                    </div>
-                ))}
-            </div>
-            );
+                        </Card.Description>
+                        <Button
+                style={{ cursor: "pointer", marginTop: 10 }}
+                type="submit"
+                fluid
+              >
+                <Link to={`/posts/${Post._id}`}>ENTER CHAT</Link>
+              </Button>
+              <div
+                class="ui disabled rating"
+                role="radiogroup"
+                tabindex="0"
+                style={{ marginTop: 10 }}
+              >
+                <i
+                  tabindex="-1"
+                  aria-checked="false"
+                  aria-posinset="1"
+                  aria-setsize="5"
+                  class="active icon"
+                  role="radio"
+                ></i>
+                <i
+                  tabindex="-1"
+                  aria-checked="false"
+                  aria-posinset="2"
+                  aria-setsize="5"
+                  class="active icon"
+                  role="radio"
+                ></i>
+                <i
+                  tabindex="-1"
+                  aria-checked="true"
+                  aria-posinset="3"
+                  aria-setsize="5"
+                  class="active icon"
+                  role="radio"
+                ></i>
+                <i
+                  tabindex="-1"
+                  aria-checked="false"
+                  aria-posinset="4"
+                  aria-setsize="5"
+                  class="icon"
+                  role="radio"
+                ></i>
+                <i
+                  tabindex="-1"
+                  aria-checked="false"
+                  aria-posinset="5"
+                  aria-setsize="5"
+                  class="icon"
+                  role="radio"
+                ></i>
+              </div>
+            </Card.Content>
+          </Card>
+        ))}
+    </Card.Group>
+    );
 };
 
 export default PostList;
