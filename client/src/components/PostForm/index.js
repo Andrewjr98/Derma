@@ -7,6 +7,15 @@ import { QUERY_POSTS, QUERY_ME } from "../../utils/queries";
 
 import Auth from "../../utils/auth";
 
+import {
+  Form,
+  Button,
+  Grid,
+  Header as SemanticHeader,
+  Segment,
+  Message,
+} from "semantic-ui-react";
+
 const PostForm = () => {
   const [message, setMessage] = useState("");
 
@@ -59,35 +68,42 @@ const PostForm = () => {
 
   return (
     <div>
-      <h3>What's on your techy mind?</h3>
+      <h3></h3>
 
       {Auth.loggedIn() ? (
-        <>
-          <p
-            className={`m-0 ${
-              characterCount === 280 || error ? "text-danger" : ""
-            }`}
-          >
-            Character Count: {characterCount}/280
-          </p>
-          <form className="" onSubmit={handleFormSubmit}>
-            <div className="">
+       <>
+       <p
+         className={`m-0 ${
+           characterCount === 524 || error ? "text-danger" : ""
+         }`}
+       >
+         Character Count: {characterCount}/524
+       </p>
+       <form
+         className="flex-row justify-center justify-space-between-md align-center"
+         onSubmit={handleFormSubmit}
+       >
+            <div className="col-12 col-lg-9">
               <textarea
                 name="message"
                 placeholder="Here's a new thought..."
                 value={message}
-                className=""
+                className="form-input w-100"
                 style={{ lineHeight: "1.5", resize: "vertical" }}
                 onChange={handleChange}
               ></textarea>
             </div>
 
-            <div className="">
-              <button className="" type="submit">
+            <div className="col-12 col-lg-3">
+              <Button className="ui primary button" type="submit">
                 Add Post
-              </button>
+              </Button>
             </div>
-            {error && <div className="">{error.message}</div>}
+            {error &&  (
+              <div className="col-12 my-3 bg-danger text-white p-3">
+                {error.message}
+                </div>
+            )}
           </form>
         </>
       ) : (
